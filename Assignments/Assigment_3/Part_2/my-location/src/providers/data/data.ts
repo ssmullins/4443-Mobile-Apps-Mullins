@@ -25,7 +25,7 @@ export class DataProvider {
 */
 Uploading_Registration_Data(First_Name, Last_Name, Email){
   //console.log(First_Name, Last_Name, Email, Password);
-  this.firestore.collection('users').add({
+  this.firestore.collection('Users').add({
     ID: 101, // Must change the ID Based on who is using the app, Get their "ID" 
     First: First_Name,    // Could get the device unique id
     Last: Last_Name,
@@ -55,7 +55,7 @@ Uploading_Registration_Data(First_Name, Last_Name, Email){
 ###############################################################################################*/
   Update_coordinates_Time(cor) {
     var Time = ~~(Date.now() / 1000) // Gives me the Unix time 
-    this.firestore.collection('locations').add({
+    this.firestore.collection('Locations').add({
       ID: 101, // Must change the ID Based on who is using the app, Get their "ID"
       Point: cor,
       Time: Time
