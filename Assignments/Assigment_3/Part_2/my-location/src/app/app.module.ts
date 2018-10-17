@@ -12,13 +12,12 @@ import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 import { Geolocation } from '@ionic-native/geolocation';
 import {AngularFireAuthModule} from "angularfire2/auth";
-import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage,
     HomePage
   ],
   imports: [
@@ -31,7 +30,6 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage,
     HomePage
   ],
   providers: [

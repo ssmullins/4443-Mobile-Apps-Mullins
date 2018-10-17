@@ -1,32 +1,31 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import {  map } from 'rxjs/operators';
-/*
-  Generated class for the DataProvider provider.
+import { identifierModuleUrl } from '@angular/compiler';
+import { User } from '../../models/models';
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class DataProvider {
 
   constructor(private firestore: AngularFirestore) {
-    console.log('Hello DataProvider Provider');
-
+  
 }
 
-/*
+id = this.firestore.createId(); // Creating the Id for the user
+
+/*#############################################################################################
 
  Registration Function:
   Will ask the user to input their: Name, Last Name, Password, and email
   Upload the new user in the "Users" collection
 
 
-*/
+###############################################################################################*/
+
 Uploading_Registration_Data(First_Name, Last_Name, Email){
   //console.log(First_Name, Last_Name, Email, Password);
   this.firestore.collection('Users').add({
-    ID: 101, // Must change the ID Based on who is using the app, Get their "ID" 
+    ID: this.id, // Must change the ID Based on who is using the app, Get their "ID" 
     First: First_Name,    // Could get the device unique id
     Last: Last_Name,
     Email: Email,
@@ -35,14 +34,6 @@ Uploading_Registration_Data(First_Name, Last_Name, Email){
 
   //
 }
-
-
-/*
-
- Login Function:
- Authenthicate if the user is in the "Users" collection
-
-*/
 
 
 /*#############################################################################################
@@ -56,7 +47,7 @@ Uploading_Registration_Data(First_Name, Last_Name, Email){
   Update_coordinates_Time(cor) {
     var Time = ~~(Date.now() / 1000) // Gives me the Unix time 
     this.firestore.collection('Locations').add({
-      ID: 101, // Must change the ID Based on who is using the app, Get their "ID"
+      ID: this.id, // Must change the ID Based on who is using the app, Get their "ID"
       Point: cor,
       Time: Time
     })

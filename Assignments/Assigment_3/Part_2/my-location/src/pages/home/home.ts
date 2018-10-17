@@ -25,10 +25,10 @@ export class HomePage {
   }
   
   ionViewDidLoad(){
-    this.afAuth.authState.subscribe(data => { // Display a message with the email of the user
+    this.afAuth.authState.subscribe(data => { // Display a message with the email of the user in Home Page
       if (data.email && data.uid) {
         this.toast.create({
-          message: `Welocme to APP_Name, ${data.email}`,
+          message: `Welocome, ${data.email}`,
           duration: 3000
         }).present();
       }
